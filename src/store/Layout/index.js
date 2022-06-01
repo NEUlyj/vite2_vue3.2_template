@@ -1,11 +1,15 @@
+
 const state = {
     isCollapse: false
 }
-const actions = {}
+const actions = {
+
+}
 const mutations = {
     'CHANGECOLLAPSE'(state) {
         state.isCollapse = !state.isCollapse
     }
+
 }
 export default {
     namespaced: true,

@@ -14,7 +14,7 @@
         <img src="../../../assets/head.jpg">
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <el-dropdown-item @click="exit">退出</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -25,14 +25,23 @@
 <script setup>
 import BreadCrumb from "@/components/LayOut/Header/BreadCrumb/index.vue";
 import {useStore} from 'vuex'
+import {useRouter} from "vue-router";
 
 const store = useStore()
+const router =useRouter()
 const isCollapse = computed(() => {
   return store.state.layout.isCollapse
 })
 
 function changeCollapse() {
   store.commit('layout/CHANGECOLLAPSE')
+}
+function exit(){
+  store.dispatch('Login/exitSystem').then(()=>{
+    router.push({
+      name:'login'
+    })
+  })
 }
 </script>
 

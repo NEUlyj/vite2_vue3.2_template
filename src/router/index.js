@@ -50,7 +50,13 @@ export const routes=[
         ]
     }
 ];
-export default createRouter({
+const Router=()=> createRouter({
     history:createWebHistory(),
     routes
 })
+const router = Router()
+export function resetRouter() {
+    const newRouter = Router()
+    router.matcher = newRouter.matcher
+}
+export default router
